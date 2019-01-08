@@ -41,8 +41,8 @@ func (c *LRU) Clear() {
 	c.cacheList.Init()
 }
 
-// PUT add item to LRU cache, if the key already exists, update the value
-func (c *LRU) PUT(key, value interface{}) {
+// Put add item to LRU cache, if the key already exists, update the value
+func (c *LRU) Put(key, value interface{}) {
 	// check if the key exists
 	if item, ok := c.items[key]; ok {
 		// move the item to the front
@@ -88,8 +88,8 @@ func (c *LRU) removeItem(item *list.Element) {
 	delete(c.items, kv.key)
 }
 
-// DEL . delete the key in LRU cache, return true if exists, else return false
-func (c *LRU) DEL(key interface{}) bool {
+// Del . delete the key in LRU cache, return true if exists, else return false
+func (c *LRU) Del(key interface{}) bool {
 	if item, ok := c.items[key]; ok {
 		c.removeItem(item)
 		return true
