@@ -11,13 +11,11 @@ func main() {
 	for i := 0; i < 256; i++ {
 		l.Put(i, i)
 	}
-	res, err := l.Get(45)
+	res, err := l.Get(200)
 	if err == nil {
 		println(fmt.Sprintf("get value: %v", res))
 	} else {
 		println(fmt.Sprintf("get err: %v", err))
 	}
-	if l.Len() != 128 {
-		panic(fmt.Sprintf("bad len: %v", l.Len()))
-	}
+	println(fmt.Sprintf("get len: %v", l.Len()))
 }
